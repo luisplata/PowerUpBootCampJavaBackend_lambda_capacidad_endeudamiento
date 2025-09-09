@@ -25,7 +25,7 @@ provider:
 
 functions:
   endeudamiento:
-    handler: handler.endeudamiento
+    handler: src/infrastructure/handlers/calcularCapacidadHandler.calcularCapacidad
     events:
       - httpApi:
           path: /api/v1/calcular-capacidad

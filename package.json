@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "serverless invoke local --function readSqsToEmail",
+    "test": "serverless invoke local --function endeudamiento --path ./test-event.json",
     "deploy": "serverless deploy --stage dev --verbose --aws-profile default",
     "remove": "serverless remove --stage dev --aws-profile default"
   },
