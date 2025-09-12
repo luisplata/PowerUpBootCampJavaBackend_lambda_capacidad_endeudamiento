@@ -1,5 +1,5 @@
 const CalcularCapacidadService = require("../../domain/useCase/CalcularCapacidadService");
-const { handleError } = require("../errorHandler");
+const { handleError, resultado } = require("../errorHandler");
 const { logInfo, logError } = require("../logging");
 
 const service = new CalcularCapacidadService();
@@ -10,18 +10,15 @@ module.exports.calcularCapacidad = async (event) => {
 
     const body = typeof event.body === "string" ? JSON.parse(event.body) : event.body || {};
 
-    const resultado = service.ejecutar({
+    const resultadoJson = service.ejecutar({
       ingresosTotales: body.ingresosTotales,
       prestamosActivos: body.prestamosActivos || [],
       nuevoPrestamo: body.nuevoPrestamo,
     });
 
-    logInfo("Resultado calculado", resultado);
+    logInfo("Resultado calculado", resultadoJson);
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify(resultado),
-    };
+    return resultado(resultadoJson);
   } catch (error) {
     logError("Error en calcularCapacidad", error);
     return handleError(error);
