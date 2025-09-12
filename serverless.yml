@@ -20,8 +20,16 @@ provider:
   stage: dev
   region: ${env:REGION}
   environment:
-    TOPIC_ARN: ${env:TOPIC_ARN}
     REGION: ${env:REGION}
+    QUEUE_URL: ${env:QUEUE_URL}
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - sqs:SendMessage
+      Resource:
+        - ${env:SQS_ARN}
+
 
 functions:
   endeudamiento:

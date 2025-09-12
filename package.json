@@ -20,5 +20,8 @@
   "homepage": "https://github.com/luisplata/PowerUpBootCampJavaBackend_lambda_capacidad_endeudamiento#readme",
   "devDependencies": {
     "serverless-dotenv-plugin": "^6.0.0"
+  },
+  "dependencies": {
+    "@aws-sdk/client-sqs": "^3.887.0"
   }
 }

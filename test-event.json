@@ -1,3 +1,3 @@
 {
-  "body": "{\"ingresosTotales\":4000,\"prestamosActivos\":[{\"monto\":2000,\"tasaMensual\":0.02,\"plazoMeses\":12}],\"nuevoPrestamo\":{\"monto\":3000,\"tasaMensual\":0.015,\"plazoMeses\":24}}"
+  "body": "{\"ingresosTotales\":4000,\"prestamosActivos\":[{\"monto\":2000,\"tasaMensual\":0.02,\"plazoMeses\":12}],\"nuevoPrestamo\":{\"monto\":3000,\"tasaMensual\":0.015,\"plazoMeses\":24}, \"email\":\"www.luisplata@gmail.com\"}"
 }

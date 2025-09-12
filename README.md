@@ -8,3 +8,5 @@ npm install --save-dev serverless-dotenv-plugin
 
 `CapacidadEndeudamientoMaxima = IngresosTotales * 0.35`
 
+### TODO
+- [ ] Colocarle seguridad a los endpoints
