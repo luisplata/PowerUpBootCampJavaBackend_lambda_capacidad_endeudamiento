@@ -1,4 +1,4 @@
-const { calcularCapacidadMaxima, calcularCuota } = require("../domain/formulas");
+const { calcularCapacidadMaxima, calcularCuota } = require("../formulas");
 
 class CalcularCapacidadService {
   ejecutar({ ingresosTotales, prestamosActivos, nuevoPrestamo }) {

@@ -1,4 +1,4 @@
-const CalcularCapacidadService = require("../../application/CalcularCapacidadService");
+const CalcularCapacidadService = require("../../domain/useCase/CalcularCapacidadService");
 const { handleError } = require("../errorHandler");
 const { logInfo, logError } = require("../logging");
 
