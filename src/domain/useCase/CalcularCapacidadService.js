@@ -52,6 +52,7 @@ class CalcularCapacidadService {
       cuotaNuevoPrestamo,
       decision,
       planPagos,
+      montoTotal: nuevoPrestamo.monto,
     };
   }
 }

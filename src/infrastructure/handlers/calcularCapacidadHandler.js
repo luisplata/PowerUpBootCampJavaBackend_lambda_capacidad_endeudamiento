@@ -1,5 +1,5 @@
 const CalcularCapacidadService = require("../../domain/useCase/CalcularCapacidadService");
-const { sendToSqs } = require("../adapters/SqsAdapter");
+const { sendToSqs, sendToSqsReport } = require("../adapters/SqsAdapter");
 const { handleError, resultado } = require("../errorHandler");
 const { logInfo, logError } = require("../logging");
 
@@ -26,8 +26,13 @@ module.exports.calcularCapacidad = async (event) => {
       listadoDelPrestamo += `Cuota #${datoUnico.mes} pagarias $${datoUnico.cuota} con un interes de ${datoUnico.interes} abonarias al capital $${datoUnico.abonoCapital} para tener un saldo pendiente de ${datoUnico.saldoRestante}\n`
     });
 
+    //Json Schema
     //enviamos a la SQS de desiciones
     await sendToSqs(email, "Resultado automatico", `El resultado de la validacion automatica es ${resultadoJson.decision} con el plan de pago \n${listadoDelPrestamo}`);
+    if (resultadoJson.decision === "APROBADO") {
+      //enviamos a la SQS de reporte
+      await sendToSqsReport(resultadoJson.montoTotal);
+    }
 
     return resultado(resultadoJson);
   } catch (error) {

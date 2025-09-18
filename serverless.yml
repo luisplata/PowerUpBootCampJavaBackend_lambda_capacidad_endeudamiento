@@ -22,6 +22,7 @@ provider:
   environment:
     REGION: ${env:REGION}
     QUEUE_URL: ${env:QUEUE_URL}
+    REPORT_QUEUE_URL: ${env:REPORT_QUEUE_URL}
 
   iamRoleStatements:
     - Effect: Allow
@@ -29,6 +30,11 @@ provider:
         - sqs:SendMessage
       Resource:
         - ${env:SQS_ARN}
+    - Effect: Allow
+      Action:
+        - sqs:SendMessage
+      Resource:
+        - ${env:REPORT_ARN}
 
 
 functions:
