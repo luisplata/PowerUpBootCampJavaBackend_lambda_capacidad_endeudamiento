@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "serverless invoke local --function endeudamiento --path ./test-event.json",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:unit": "jest --testPathPattern=\"formulas|errorHandler|CalcularCapacidadService|integration\"",
+    "test:unit:coverage": "jest --coverage --testPathPattern=\"formulas|errorHandler|CalcularCapacidadService|integration\"",
+    "test:integration": "serverless invoke local --function endeudamiento --path ./test-event.json",
     "deploy": "serverless deploy --stage dev --verbose --aws-profile default",
     "remove": "serverless remove --stage dev --aws-profile default"
   },
@@ -19,7 +24,9 @@
   },
   "homepage": "https://github.com/luisplata/PowerUpBootCampJavaBackend_lambda_capacidad_endeudamiento#readme",
   "devDependencies": {
-    "serverless-dotenv-plugin": "^6.0.0"
+    "serverless-dotenv-plugin": "^6.0.0",
+    "jest": "^29.7.0",
+    "@jest/globals": "^29.7.0"
   },
   "dependencies": {
     "@aws-sdk/client-sqs": "^3.887.0"

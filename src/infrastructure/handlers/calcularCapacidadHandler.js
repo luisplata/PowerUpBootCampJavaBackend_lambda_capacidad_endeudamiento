@@ -31,7 +31,8 @@ module.exports.calcularCapacidad = async (event) => {
     await sendToSqs(email, "Resultado automatico", `El resultado de la validacion automatica es ${resultadoJson.decision} con el plan de pago \n${listadoDelPrestamo}`);
     if (resultadoJson.decision === "APROBADO") {
       //enviamos a la SQS de reporte
-      await sendToSqsReport(resultadoJson.montoTotal);
+      //Esto lo hacemos desde el microservicio de solicitud
+      //await sendToSqsReport(resultadoJson.montoTotal);
     }
 
     return resultado(resultadoJson);
