@@ -8,3 +8,6 @@ npm install --save-dev serverless-dotenv-plugin
 
 `CapacidadEndeudamientoMaxima = IngresosTotales * 0.35`
 
+
+### TODO
+- [ ] Cuando se aprueba la solicitud no mandar desde aqui a la cola, si no desde tierra.
